@@ -31,6 +31,7 @@ INSTALLED_APPS = (
     'registration',
     'django_ses',
     'djcelery_email',
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -148,3 +149,6 @@ AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 AWS_SES_REGION_NAME = 'eu-west-1'
 AWS_SES_REGION_ENDPOINT = 'email.eu-west-1.amazonaws.com'
+
+# Crispy forms
+CRISPY_TEMPLATE_PACK = 'uni_form'

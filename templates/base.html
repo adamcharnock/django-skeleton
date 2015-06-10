@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
+{% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'lib/uniform/uni-form.css' %}"/>
+    <link rel="stylesheet" href="{% static 'lib/uniform/default.uni-form.css' %}"/>
 </head>
 
 <body>
