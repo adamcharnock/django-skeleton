@@ -7,3 +7,5 @@
 static/
 /.idea
 .bash_history
+.foreman
+/celerybeat-schedule

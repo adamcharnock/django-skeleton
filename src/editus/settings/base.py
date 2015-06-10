@@ -1,9 +1,9 @@
 import os
+from urllib.parse import urlparse
 from path import path
 
 PROJECT_DIR = path(__file__).dirname().abspath().realpath().parent.parent.parent
 SRC_DIR = PROJECT_DIR / 'src'
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -26,6 +26,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'djcelery',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,16 +63,12 @@ WSGI_APPLICATION = 'editus.wsgi.application'
 
 
 # Database
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_ENV_DB', 'editus'),
-        'USER': os.environ.get('DB_ENV_POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_ENV_POSTGRES_PASSWORD', ''),
-        'HOST': os.environ.get('DB_PORT_5432_TCP_ADDR', ''),
-        'PORT': os.environ.get('DB_PORT_5432_TCP_PORT', ''),
-    },
+    'default': dj_database_url.config()
 }
+
+REDIS_URL = os.environ.get('REDISTOGO_URL', os.environ.get('REDIS_URL', 'redis://localhost:6959'))
 
 
 # Internationalization
@@ -113,3 +111,14 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     PROJECT_DIR / 'assets',
 )
+
+# Celery
+
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['json']
+BROKER_URL = REDIS_URL
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+
+import djcelery
+djcelery.setup_loader()

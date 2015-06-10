@@ -5,3 +5,5 @@ gunicorn==19.3.0
 dj-database-url==0.3.0
 dj-static==0.0.6
 psycopg2==2.6
+django-celery==3.1.16
+redis==2.10.3

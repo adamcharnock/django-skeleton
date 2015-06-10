@@ -1,0 +1,3 @@
+web: django-admin.py runserver
+docs: mkdocs serve
+worker: django-admin.py celeryd --beat --purge
