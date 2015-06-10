@@ -9,4 +9,5 @@ django-celery==3.1.16
 redis==2.10.3
 django-registration-redux==1.2
 django-celery-email==1.1.1
+# The django_ses project has been taken over. Replace when release > 0.7.0 happens (see issue #70)
 git+git://github.com/django-ses/django-ses.git@2fae0ebdaa96ff6daaea4edaafca3c02cdda61d8#egg=django_ses
