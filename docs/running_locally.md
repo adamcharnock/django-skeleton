@@ -29,6 +29,7 @@ Append the following content (ensuring the values are correct):
     export DATABASE_URL=postgres://127.0.0.1:5432/editus
     # Ensure foreman displays output
     export PYTHONUNBUFFERED=true
+    alias run="foreman start"
 
 Now activate the new settings by running the following (again):
 
@@ -45,6 +46,8 @@ Tell foreman to use `Procfile.local` rather than `Procfile`:
 Now run foreman to start the development server, celery, and the docs server:
 
     $ foreman start
+    # OR, using the alias setup in postactivate, simply:
+    $ run
 
 And you should be good to go! You can now access:
 
