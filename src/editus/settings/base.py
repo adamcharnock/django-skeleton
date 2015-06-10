@@ -28,6 +28,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'djcelery',
+    'registration',
+    'django_ses',
+    'djcelery_email',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,7 +49,9 @@ ROOT_URLCONF = 'editus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            PROJECT_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,3 +127,24 @@ CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 
 import djcelery
 djcelery.setup_loader()
+
+# Django Registration
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+REGISTRATION_OPEN = not bool(os.environ.get('CLOSE_REGISTRATION'))
+
+# Email
+EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
+CELERY_EMAIL_BACKEND = 'django_ses.SESBackend'
+CELERY_EMAIL_TASK_CONFIG = {
+    'rate_limit' : '1/s',
+}
+DEFAULT_FROM_EMAIL = 'adam@adamcharnock.com'
+SERVER_EMAIL = 'adam@adamcharnock.com'
+
+# AWS
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+
+AWS_SES_REGION_NAME = 'eu-west-1'
+AWS_SES_REGION_ENDPOINT = 'email.eu-west-1.amazonaws.com'
