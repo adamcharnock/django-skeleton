@@ -139,8 +139,8 @@ CELERY_EMAIL_BACKEND = 'django_ses.SESBackend'
 CELERY_EMAIL_TASK_CONFIG = {
     'rate_limit' : '1/s',
 }
-DEFAULT_FROM_EMAIL = 'adam@adamcharnock.com'
-SERVER_EMAIL = 'adam@adamcharnock.com'
+DEFAULT_FROM_EMAIL = 'Adam Charnock <adam@adamcharnock.com>'
+SERVER_EMAIL = 'Adam Charnock <adam@adamcharnock.com>'
 
 # AWS
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
