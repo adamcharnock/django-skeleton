@@ -9,3 +9,4 @@ static/
 .bash_history
 .foreman
 /celerybeat-schedule
+/assets/bower
