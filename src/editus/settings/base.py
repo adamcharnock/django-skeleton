@@ -32,6 +32,7 @@ INSTALLED_APPS = (
     'django_ses',
     'djcelery_email',
     'crispy_forms',
+    'pipeline',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -152,3 +153,8 @@ AWS_SES_REGION_ENDPOINT = 'email.eu-west-1.amazonaws.com'
 
 # Crispy forms
 CRISPY_TEMPLATE_PACK = 'uni_form'
+
+# Pipeline
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
+from editus.assets import *

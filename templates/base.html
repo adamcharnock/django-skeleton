@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 {% load staticfiles %}
+{% load pipeline %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
-    <link rel="stylesheet" href="{% static 'lib/uniform/uni-form.css' %}"/>
-    <link rel="stylesheet" href="{% static 'lib/uniform/default.uni-form.css' %}"/>
+    {% stylesheet 'core' %}
 </head>
 
 <body>
     {% block content %}{% endblock %}
+    {% javascript 'core' %}
 </body>
 
 </html>
