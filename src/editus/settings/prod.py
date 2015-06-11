@@ -15,8 +15,6 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
-SECRET_KEY = os.environ['SECRET_KEY']
-
 # HEROKU CONFIG
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()

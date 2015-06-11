@@ -27,6 +27,7 @@ Append the following content (ensuring the values are correct):
     export DJANGO_SETTINGS_MODULE=editus.settings.local
     export REDIS_URL=redis://127.0.0.1:6379/0
     export DATABASE_URL=postgres://postgres@127.0.0.1:5432/editus
+    export SECRET_KEY="random-string-here"
     # Ensure foreman displays output
     export PYTHONUNBUFFERED=true
     alias run="foreman start"

@@ -5,13 +5,8 @@ from path import path
 PROJECT_DIR = path(__file__).dirname().abspath().realpath().parent.parent.parent
 SRC_DIR = PROJECT_DIR / 'src'
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
+SECRET_KEY = os.environ['SECRET_KEY']
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lg%(3)nfg*@&(fnqqc_2798#jzo3&mp7hx8c4pdaqf+)n&-73_'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DEBUG'))
 
 ALLOWED_HOSTS = []
