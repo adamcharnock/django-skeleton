@@ -33,6 +33,7 @@ INSTALLED_APPS = (
     'djcelery_email',
     'crispy_forms',
     'pipeline',
+    'easydump',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -145,8 +146,8 @@ DEFAULT_FROM_EMAIL = 'Adam Charnock <adam@adamcharnock.com>'
 SERVER_EMAIL = 'Adam Charnock <adam@adamcharnock.com>'
 
 # AWS
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = AWS_SECRET_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 AWS_SES_REGION_NAME = 'eu-west-1'
 AWS_SES_REGION_ENDPOINT = 'email.eu-west-1.amazonaws.com'
@@ -161,3 +162,12 @@ PIPELINE_CSS_COMPRESSOR = False
 PIPELINE_JS_COMPRESSOR = False
 
 from editus.assets import *
+
+# Easydump
+EASYDUMP_MANIFESTS = {
+    'default': {
+        'database': 'default',
+        's3-bucket': 'authorcodumps',
+        'jobs': 1,
+    }
+}
