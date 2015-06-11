@@ -28,9 +28,11 @@ ALLOWED_HOSTS = ['*']
 # Static asset configuration
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = (
     PROJECT_DIR / 'assets',
 )
+# This should be enabled on prod regardless of DEBUG setting
+PIPELINE_ENABLED = True
 
+# Celery
 CELERYD_CONCURRENCY = 3

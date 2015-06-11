@@ -156,5 +156,8 @@ CRISPY_TEMPLATE_PACK = 'uni_form'
 
 # Pipeline
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+# Let cloudinary take care of the minifying for us
+PIPELINE_CSS_COMPRESSOR = False
+PIPELINE_JS_COMPRESSOR = False
 
 from editus.assets import *
