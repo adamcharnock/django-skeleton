@@ -35,6 +35,8 @@ INSTALLED_APPS = (
     'pipeline',
     'easydump',
     'debug_toolbar',
+
+    'editus.apps.core',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -105,6 +107,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Testing
+# TEST_RUNNER = 'editus.utils.testrunner.DiscoverRunner'
 
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
