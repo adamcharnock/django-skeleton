@@ -1,2 +1,1 @@
-TODO: Use redis for session storage
 TODO: Setup tests

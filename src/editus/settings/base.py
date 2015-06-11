@@ -77,8 +77,20 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config()
 }
+REDIS_URL = os.environ.get('REDISTOGO_URL', os.environ.get('REDIS_URL', 'redis://localhost:6959/0'))
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": REDIS_URL,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
 
-REDIS_URL = os.environ.get('REDISTOGO_URL', os.environ.get('REDIS_URL', 'redis://localhost:6959'))
+# Sessions
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 
 
 # Internationalization
