@@ -1,4 +1,4 @@
-site_name: Editus Docs
+site_name: Django Skeleton Docs
 theme: readthedocs
 dev_addr: localhost:8001
 
@@ -11,4 +11,8 @@ markdown_extensions:
   - smarty:
           smart_angled_quotes: true
   - toc
-  - fenced_code
+  - codehilite
+  - footnotes
+  - tables
+  - headerid
+  - admonition
