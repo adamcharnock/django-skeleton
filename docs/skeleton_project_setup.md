@@ -1,6 +1,6 @@
-# Getting the Code
+# Skeleton Project Setup
 
-To get setup with this project do the following:
+To get setup with the skeleton project do the following:
     
     # Get the code
     $ PRJNAME=exampleprj
@@ -14,5 +14,5 @@ To get setup with this project do the following:
     
     # Replace references to djskel with your project name
     $ env LC_CTYPE=C LANG=C find ./ -type f ! -path '*/\.*' -exec sed -i "" -e "s/djskel/$PRJNAME/g" {} \;
-    
-    
+
+Next: [Get it running locally](running_locally.md)

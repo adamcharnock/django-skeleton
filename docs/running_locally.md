@@ -9,24 +9,28 @@ You will need the following running on your local computer:
  * Python 3 (`brew install python3`)
  * [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/)
 
+First, let's set your project name:
+
+    $ PRJNAME=exampleprj # Change this!
+
 Once those are installed, create yourself a virtual python env:
     
-    $ mkdir ~/Projects/exampleproj
-    $ cd ~/Projects/exampleproj
-    $ mkvirtualenv --python=/usr/local/bin/python3 exampleproj 
-    $ workon exampleproj
+    $ mkdir ~/Projects/$PRJNAME
+    $ cd ~/Projects/$PRJNAME
+    $ mkvirtualenv --python=/usr/local/bin/python3 $PRJNAME 
+    $ workon $PRJNAME
     $ pip install -r requirements-dev.txt
 
 Now edit your new environment's postactivate hook:
 
-    $ vim $WORKON_HOME/exampleproj/bin/postactivate
+    $ vim $WORKON_HOME/$PRJNAME/bin/postactivate
 
 Append the following content (ensuring the values are correct):
 
-    export PYTHONPATH=/path/to/exampleproj/src
-    export DJANGO_SETTINGS_MODULE=exampleproj.settings.local
+    export PYTHONPATH=/path/to/exampleprj/src
+    export DJANGO_SETTINGS_MODULE=exampleprj.settings.local
     export REDIS_URL=redis://127.0.0.1:6379/0
-    export DATABASE_URL=postgres://postgres@127.0.0.1:5432/exampleproj
+    export DATABASE_URL=postgres://postgres@127.0.0.1:5432/exampleprj
     export SECRET_KEY="random-string-here"
     # Ensure foreman displays output
     export PYTHONUNBUFFERED=true
@@ -34,7 +38,7 @@ Append the following content (ensuring the values are correct):
 
 Now activate the new settings by running the following (again):
 
-    $ workon exampleproj
+    $ workon $PRJNAME
 
 Now setup your database:
 
@@ -55,10 +59,18 @@ And you should be good to go! You can now access:
  * The app: [http://127.0.0.1:8000](http://127.0.0.1:8000) 
  * The docs: [http://127.0.0.1:8001](http://127.0.0.1:8001) 
 
-## Testing Skeleton App
+## Test Skeleton App
 
-The skeleton app can be tested by running:
+The app should now be setup. You can test this by running (you'll need to be running 
+foreman in another terminal window):
 
-    python src/exampleproj/utils/tests_skeleton.py
+    python src/$PRJNAME/utils/tests_skeleton.py
 
-You will need to be running foreman in another terminal window.
+This will:
+
+1. Queue a dummy celery task
+2. Load the registration page
+3. Send a test email to ``DEFAULT_FROM_EMAIL``
+4. Load the docs homepage
+
+Note that this is **not** done in a test environment.

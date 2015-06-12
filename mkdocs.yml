@@ -1,3 +1,13 @@
 site_name: Editus Docs
 theme: readthedocs
 dev_addr: localhost:8001
+
+pages:
+  - Home: index.md
+  - Skeleton Project Setup: skeleton_project_setup.md
+  - Running Locally: running_locally.md
+
+markdown_extensions:
+  - smarty:
+          smart_angled_quotes: true
+  - toc
