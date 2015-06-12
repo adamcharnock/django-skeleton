@@ -11,6 +11,8 @@ DEBUG = bool(os.environ.get('DEBUG'))
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
+
 
 # Application definition
 
@@ -155,6 +157,7 @@ EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
 CELERY_EMAIL_BACKEND = 'django_ses.SESBackend'
 CELERY_EMAIL_TASK_CONFIG = {
     'rate_limit' : '1/s',
+    'ignore_result': False,
 }
 DEFAULT_FROM_EMAIL = 'Adam Charnock <adam@adamcharnock.com>'
 SERVER_EMAIL = 'Adam Charnock <adam@adamcharnock.com>'

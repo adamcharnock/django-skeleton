@@ -55,5 +55,10 @@ And you should be good to go! You can now access:
  * The app: [http://127.0.0.1:8000](http://127.0.0.1:8000) 
  * The docs: [http://127.0.0.1:8001](http://127.0.0.1:8001) 
 
+## Testing Skeleton App
 
+The skeleton app can be tested by running:
 
+    python src/editus/utils/tests_skeleton.py
+
+You will need to be running foreman in another terminal window.
