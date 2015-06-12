@@ -184,7 +184,7 @@ from djskel.assets import *
 EASYDUMP_MANIFESTS = {
     'default': {
         'database': 'default',
-        's3-bucket': 'authorcodumps',
+        's3-bucket': 'djskel_dumps',
         'jobs': 1,
     }
 }
