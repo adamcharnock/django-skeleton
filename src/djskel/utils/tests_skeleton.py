@@ -2,7 +2,7 @@
 
 This must be run directly thusly:
 
-    python src/editus/utils/tests_skeleton.py
+    python src/djskel/utils/tests_skeleton.py
 
 IMPORTANT: This doesn't use the test db or dummy email sending.
            It will actually do things in order to ensure you
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     class RealWorldTestCase(unittest.TestCase):
 
         def test_celery(self):
-            from editus.celery import debug_task
+            from djskel.celery import debug_task
             result = debug_task.delay()
             self.assertIsInstance(result, AsyncResult)
             result.wait(timeout=3)

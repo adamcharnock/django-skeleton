@@ -11,22 +11,22 @@ You will need the following running on your local computer:
 
 Once those are installed, create yourself a virtual python env:
     
-    $ mkdir ~/Projects/editus
-    $ cd ~/Projects/editus
-    $ mkvirtualenv --python=/usr/local/bin/python3 editus 
-    $ workon editus
+    $ mkdir ~/Projects/djskel
+    $ cd ~/Projects/djskel
+    $ mkvirtualenv --python=/usr/local/bin/python3 djskel 
+    $ workon djskel
     $ pip install -r requirements-dev.txt
 
 Now edit your new environment's postactivate hook:
 
-    $ vim $WORKON_HOME/editus/bin/postactivate
+    $ vim $WORKON_HOME/djskel/bin/postactivate
 
 Append the following content (ensuring the values are correct):
 
-    export PYTHONPATH=/path/to/editus/src
-    export DJANGO_SETTINGS_MODULE=editus.settings.local
+    export PYTHONPATH=/path/to/djskel/src
+    export DJANGO_SETTINGS_MODULE=djskel.settings.local
     export REDIS_URL=redis://127.0.0.1:6379/0
-    export DATABASE_URL=postgres://postgres@127.0.0.1:5432/editus
+    export DATABASE_URL=postgres://postgres@127.0.0.1:5432/djskel
     export SECRET_KEY="random-string-here"
     # Ensure foreman displays output
     export PYTHONUNBUFFERED=true
@@ -34,7 +34,7 @@ Append the following content (ensuring the values are correct):
 
 Now activate the new settings by running the following (again):
 
-    $ workon editus
+    $ workon djskel
 
 Now setup your database:
 
@@ -59,6 +59,6 @@ And you should be good to go! You can now access:
 
 The skeleton app can be tested by running:
 
-    python src/editus/utils/tests_skeleton.py
+    python src/djskel/utils/tests_skeleton.py
 
 You will need to be running foreman in another terminal window.

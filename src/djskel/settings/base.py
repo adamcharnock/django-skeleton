@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'easydump',
     'debug_toolbar',
 
-    'editus.apps.core',
+    'djskel.apps.core',
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -49,7 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'editus.urls'
+ROOT_URLCONF = 'djskel.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'editus.wsgi.application'
+WSGI_APPLICATION = 'djskel.wsgi.application'
 
 
 # Database
@@ -107,7 +107,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Testing
-TEST_RUNNER = 'editus.utils.testrunner.DiscoverRunner'
+TEST_RUNNER = 'djskel.utils.testrunner.DiscoverRunner'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
@@ -178,7 +178,7 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 PIPELINE_CSS_COMPRESSOR = False
 PIPELINE_JS_COMPRESSOR = False
 
-from editus.assets import *
+from djskel.assets import *
 
 # Easydump
 EASYDUMP_MANIFESTS = {
