@@ -19,3 +19,28 @@ To get setup with the skeleton project do the following:
     $ env LC_CTYPE=C LANG=C find ./ -type f ! -path '*/\.*' -exec sed -i "" -e "s/djskel/$PRJNAME/g" {} \;
 
 Next: [Get it running locally](running_locally.md)
+
+!!! note "Not using PyCharm?"
+    If you are not using PyCharm then removing the ``.idea`` directory would 
+    be a good idea.
+
+## PyCharm Setup (optional)
+
+    $ cd .idea
+    $ env LC_CTYPE=C LANG=C find ./ -type f ! -exec sed -i "" -e "s/djskel/$PRJNAME/g" {} \;
+    $ mv djskel.iml $PRJNAME.iml 
+
+Using PyCharm go to:
+
+1. *File -> Open*, and select your project directory.
+2. Once open, set your python interpreter in *Preferences -> Project -> Project Interpreter*.    
+
+You should find the 
+project loads with the various directories (src, templates, assets) configured correctly, 
+and extraneous directories ignored.
+
+!!! note
+    The above PyCharm config assumes you keep your projects in ~/Projects. 
+    If this is not the case you will need to edit the files within 
+    ``.idea/`` accordingly. 
+
