@@ -1,3 +1,6 @@
 web: django-admin.py runserver
+
 docs: mkdocs serve
-worker: django-admin.py celeryd --beat --purge --loglevel=INFO --autoreload
+
+# Running celeryd with --autoreload seems to prevent it picking up tasks
+worker: django-admin.py celeryd --beat --purge --loglevel=DEBUG
