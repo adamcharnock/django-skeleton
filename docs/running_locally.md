@@ -11,22 +11,22 @@ You will need the following running on your local computer:
 
 Once those are installed, create yourself a virtual python env:
     
-    $ mkdir ~/Projects/djskel
-    $ cd ~/Projects/djskel
-    $ mkvirtualenv --python=/usr/local/bin/python3 djskel 
-    $ workon djskel
+    $ mkdir ~/Projects/exampleproj
+    $ cd ~/Projects/exampleproj
+    $ mkvirtualenv --python=/usr/local/bin/python3 exampleproj 
+    $ workon exampleproj
     $ pip install -r requirements-dev.txt
 
 Now edit your new environment's postactivate hook:
 
-    $ vim $WORKON_HOME/djskel/bin/postactivate
+    $ vim $WORKON_HOME/exampleproj/bin/postactivate
 
 Append the following content (ensuring the values are correct):
 
-    export PYTHONPATH=/path/to/djskel/src
-    export DJANGO_SETTINGS_MODULE=djskel.settings.local
+    export PYTHONPATH=/path/to/exampleproj/src
+    export DJANGO_SETTINGS_MODULE=exampleproj.settings.local
     export REDIS_URL=redis://127.0.0.1:6379/0
-    export DATABASE_URL=postgres://postgres@127.0.0.1:5432/djskel
+    export DATABASE_URL=postgres://postgres@127.0.0.1:5432/exampleproj
     export SECRET_KEY="random-string-here"
     # Ensure foreman displays output
     export PYTHONUNBUFFERED=true
@@ -34,7 +34,7 @@ Append the following content (ensuring the values are correct):
 
 Now activate the new settings by running the following (again):
 
-    $ workon djskel
+    $ workon exampleproj
 
 Now setup your database:
 
@@ -59,6 +59,6 @@ And you should be good to go! You can now access:
 
 The skeleton app can be tested by running:
 
-    python src/djskel/utils/tests_skeleton.py
+    python src/exampleproj/utils/tests_skeleton.py
 
 You will need to be running foreman in another terminal window.
