@@ -11,48 +11,64 @@ You will need the following running on your local computer:
 
 First, let's set your project name:
 
-    $ PRJNAME=exampleprj # Change this!
+```bash
+$ PRJNAME=exampleprj # Change this!
+```
 
 Once those are installed, create yourself a virtual python env:
-    
-    $ mkdir ~/Projects/$PRJNAME
-    $ cd ~/Projects/$PRJNAME
-    $ mkvirtualenv --python=/usr/local/bin/python3 $PRJNAME 
-    $ workon $PRJNAME
-    $ pip install -r requirements-dev.txt
+
+```bash
+$ mkdir ~/Projects/$PRJNAME
+$ cd ~/Projects/$PRJNAME
+$ mkvirtualenv --python=/usr/local/bin/python3 $PRJNAME 
+$ workon $PRJNAME
+$ pip install -r requirements-dev.txt
+```
 
 Now edit your new environment's postactivate hook:
 
-    $ vim $WORKON_HOME/$PRJNAME/bin/postactivate
+```bash
+$ vim $WORKON_HOME/$PRJNAME/bin/postactivate
+```
 
 Append the following content (ensuring the values are correct):
 
-    export PYTHONPATH=/path/to/exampleprj/src
-    export DJANGO_SETTINGS_MODULE=exampleprj.settings.local
-    export REDIS_URL=redis://127.0.0.1:6379/0
-    export DATABASE_URL=postgres://postgres@127.0.0.1:5432/exampleprj
-    export SECRET_KEY="random-string-here"
-    # Ensure foreman displays output
-    export PYTHONUNBUFFERED=true
-    alias run="foreman start"
+```bash
+export PYTHONPATH=/path/to/exampleprj/src
+export DJANGO_SETTINGS_MODULE=exampleprj.settings.local
+export REDIS_URL=redis://127.0.0.1:6379/0
+export DATABASE_URL=postgres://postgres@127.0.0.1:5432/exampleprj
+export SECRET_KEY="random-string-here"
+# Ensure foreman displays output
+export PYTHONUNBUFFERED=true
+alias run="foreman start"
+```
 
 Now activate the new settings by running the following (again):
 
-    $ workon $PRJNAME
+```bash
+$ workon $PRJNAME
+```
 
 Now setup your database:
 
-    $ django-admin.py migrate
+```bash
+$ django-admin.py migrate
+```
 
 Tell foreman to use `Procfile.local` rather than `Procfile`:
 
-    $ echo "procfile: Procfile.local" > .foreman
+```bash
+$ echo "procfile: Procfile.local" > .foreman
+```
 
 Now run foreman to start the development server, celery, and the docs server:
 
-    $ foreman start
-    # OR, using the alias setup in postactivate, simply:
-    $ run
+```bash
+$ foreman start
+# OR, using the alias setup in postactivate, simply:
+$ run
+```
 
 And you should be good to go! You can now access:
 
@@ -64,7 +80,9 @@ And you should be good to go! You can now access:
 The app should now be setup. You can test this by running (you'll need to be running 
 foreman in another terminal window):
 
-    python src/$PRJNAME/utils/tests_skeleton.py
+```bash
+$ python src/$PRJNAME/utils/tests_skeleton.py
+```
 
 This will:
 

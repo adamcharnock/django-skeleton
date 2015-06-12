@@ -11,3 +11,4 @@ markdown_extensions:
   - smarty:
           smart_angled_quotes: true
   - toc
+  - fenced_code
