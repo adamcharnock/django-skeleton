@@ -1,0 +1,11 @@
+/workspace.xml
+/tasks.xml
+/dataSources.ids
+/datasources.xml
+/gradle.xml
+/libraries
+/dictionaries
+*.iws
+/scopes
+/inspectionProfiles
+/misc.xml
