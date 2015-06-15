@@ -5,3 +5,4 @@ mkdocs
 django-debug-toolbar==1.3.0
 requests
 termcolor
+werkzeug==0.10.4

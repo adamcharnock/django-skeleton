@@ -1,4 +1,4 @@
-web: django-admin.py runserver
+web: django-admin.py runserver_plus --insecure
 
 docs: mkdocs serve
 

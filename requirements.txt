@@ -15,3 +15,4 @@ django-crispy-forms==1.4.0
 -e git+git://github.com/adamcharnock/django-easydump.git@master#egg=easydump
 django-redis==4.0.0
 django-pipeline==1.5.1
+django-extensions==1.5.5

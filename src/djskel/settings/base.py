@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'pipeline',
     'easydump',
     'debug_toolbar',
+    'django_extensions',
 
     'djskel.apps.core',
 ]

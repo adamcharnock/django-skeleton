@@ -12,7 +12,7 @@ To get setup with the skeleton project do the following:
     # Change the origin remote to your new repo
     $ git remote rename origin skeleton
     $ git branch --unset-upstream master
-    $ git remote add origin git@github.com:you/your-repo.git
+    $ git remote add --fetch origin git@github.com:you/your-repo.git
     $ git branch --set-upstream master origin/master
     
     # Replace references to djskel with your project name
