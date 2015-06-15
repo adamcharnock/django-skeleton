@@ -13,10 +13,15 @@ To get setup with the skeleton project do the following:
     $ git remote rename origin skeleton
     $ git branch --unset-upstream master
     $ git remote add --fetch origin git@github.com:you/your-repo.git
-    $ git branch --set-upstream master origin/master
+    $ git push -u origin master
     
     # Replace references to djskel with your project name
     $ env LC_CTYPE=C LANG=C find ./ -type f ! -path '*/\.*' -exec sed -i "" -e "s/djskel/$PRJNAME/g" {} \;
+    $ mv src/djskel src/$PRJNAME
+    
+    # Now commit your changes
+    # git add .
+    # git commit -a -m "Customising skeleton for new project"
 
 Next: [Get it running locally](running_locally.md)
 

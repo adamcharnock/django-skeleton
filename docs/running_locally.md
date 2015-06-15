@@ -36,6 +36,8 @@ Append the following content (ensuring the values are correct):
     export REDIS_URL=redis://127.0.0.1:6379/0
     export DATABASE_URL=postgres://postgres@127.0.0.1:5432/exampleprj
     export SECRET_KEY="random-string-here"
+    export AWS_ACCESS_KEY_ID="[aws-access-key-here]"
+    export AWS_SECRET_ACCESS_KEY="[aws-secret-here]"
     # Ensure foreman displays output
     export PYTHONUNBUFFERED=true
     alias run="foreman start"
