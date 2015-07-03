@@ -16,3 +16,4 @@ django-crispy-forms==1.4.0
 django-redis==4.0.0
 django-pipeline==1.5.1
 django-extensions==1.5.5
+django_smalluuid==0.1.2
