@@ -42,7 +42,7 @@ MIDDLEWARE_CLASSES = [
 ] + MIDDLEWARE_CLASSES
 
 
-if sys.argv[1] == 'test':
+if len(sys.argv) > 1 and sys.argv[1] == 'test':
     class DisableMigrations(object):
 
         def __contains__(self, item):
