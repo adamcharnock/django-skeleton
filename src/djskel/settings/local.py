@@ -1,4 +1,5 @@
 import os
+import sys
 from .base import *
 
 DEBUG = True
@@ -39,3 +40,15 @@ INSTALLED_APPS += [
 MIDDLEWARE_CLASSES = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ] + MIDDLEWARE_CLASSES
+
+
+if sys.argv[1] == 'test':
+    class DisableMigrations(object):
+
+        def __contains__(self, item):
+            return True
+
+        def __getitem__(self, item):
+            return "notmigrations"
+
+    MIGRATION_MODULES = DisableMigrations()
