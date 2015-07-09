@@ -1,5 +1,6 @@
 import os
 from urllib.parse import urlparse
+from boto.s3.connection import OrdinaryCallingFormat
 from path import path
 
 PROJECT_DIR = path(__file__).dirname().abspath().realpath().parent.parent.parent
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'djcelery_email',
     'crispy_forms',
     'pipeline',
+    'storages',
     'easydump',
     'django_extensions',
 
@@ -172,12 +174,20 @@ AWS_SES_REGION_ENDPOINT = 'email.eu-west-1.amazonaws.com'
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
 # Pipeline
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+STATICFILES_STORAGE = 'djskel.utils.storages.S3PipelineManifestStorage'
 # Let cloudinary take care of the minifying for us
 PIPELINE_CSS_COMPRESSOR = False
 PIPELINE_JS_COMPRESSOR = False
 
 from djskel.assets import *
+
+# Media files
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_S3_CALLING_FORMAT = OrdinaryCallingFormat()
+AWS_HEADERS = {
+    'Cache-Control': 'max-age={}'.format(60*60*24*30),
+}
 
 # Easydump
 EASYDUMP_MANIFESTS = {
