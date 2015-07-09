@@ -29,6 +29,12 @@ LOGGING = {
             'level': 'INFO',
             'propagate': False,
         },
+        'boto': {
+            'handlers': ['console'],
+            # Set to 'DEBUG' to debug AWS traffic
+            'level': 'WARNING',
+            'propagate': False,
+        },
     },
 }
 
