@@ -185,6 +185,7 @@ from djskel.assets import *
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_S3_CALLING_FORMAT = OrdinaryCallingFormat()
+AWS_QUERYSTRING_AUTH = False
 AWS_HEADERS = {
     'Cache-Control': 'max-age={}'.format(60*60*24*30),
 }
